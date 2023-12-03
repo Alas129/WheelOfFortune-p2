@@ -209,16 +209,16 @@ function Game() {
         <h2> {hiddenPhrase}</h2>
         <h3>{guessTime} times to guess!</h3>
       </div>
-      <div className = "userInput">
-        <label>Guessig Single Letter </label>
-        <input type= "text" maxLength={1} value = {guessLetter} placeholder='letter' onChange = {handleInputLetter}/>
-        <button onClick={checkGuessLetter} disabled={gameOver}>Submit</button>
-        <button onClick={getHint} >Two chances for one hint</button>
+      <div className = "user-input">
+        <label>Guesse Single Letter </label>
+        <input className = "input-letter" type= "text" maxLength={1} value = {guessLetter} placeholder='letter' onChange = {handleInputLetter}/>
+        <button onClick={checkGuessLetter} disabled={guessLetter == '' ||gameOver}>Submit</button>
+        <button onClick={getHint} disabled={gameOver}>Two chances for one hint</button>
       </div>
-      <div className = "userInput">
-        <label>Guessig Whole Phrase </label>
-        <input type= "text" value = {guessPhrase} placeholder='phrase' onChange = {handleInputphrase}/>
-        <button onClick={checkGuessPhrase} disabled={gameOver}>Submit</button>
+      <div className = "user-input">
+        <label>Guesse Whole Phrase </label>
+        <input  className = "input-phrase" type= "text" value = {guessPhrase} placeholder='phrase' onChange = {handleInputphrase}/>
+        <button onClick={checkGuessPhrase} disabled = {guessPhrase == '' ||gameOver }>Submit</button>
       </div>
       <div>
         <h2>{notice}</h2>{gameOver&&
@@ -227,9 +227,11 @@ function Game() {
           <button onClick={saveRecord}>Save Record</button>
           <button onClick={cancle}>Not save</button>
         </div>}
-        <button onClick={handleShowRanking}>Show Ranking</button>
-        <button onClick={editPlayerName}>Edit PlayerName</button>
         <h2>Your previous guessLetter is: {previousGuess}</h2>
+        <div className='buttons-container'>
+          <button className='showranking' onClick={handleShowRanking}>Show Ranking</button>
+          <button className= 'editPlayerName' onClick={editPlayerName}>Edit PlayerName</button>
+        </div> 
       </div>
       </header>
     </div>

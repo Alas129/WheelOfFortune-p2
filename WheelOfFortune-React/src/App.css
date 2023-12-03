@@ -33,9 +33,17 @@ header {
   color: #fff;
 }
 
-.userInput {
+.user-input {
+  /* width: 300px; */
   margin-top: 20px;
   text-align: center;
+}
+
+.input-letter{
+  width: 80px;
+}
+.input-phrase{
+  width: 400px;
 }
 
 label {
@@ -46,7 +54,6 @@ label {
 
 input {
   padding: 12px;
-  width: 80px;
   font-size: 20px;
   border: 2px solid #ccc;
   border-radius: 10px;
@@ -211,4 +218,22 @@ h1 {
 }
 
 
-/* ... 其他样式 */
+.editPlayerName {
+  position: absolute;
+  top: 20px; /* 调整距离顶部的距离 */
+  right: 20px; /* 调整距离右侧的距离 */
+}
+
+.showranking{
+  position: absolute;
+  top: 20px; /* 调整距离顶部的距离 */
+  left: 20px; /* 调整距离右侧的距离 */
+}
+
+/* 调整下面的样式，确保按钮居中 */
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* 居中对齐 */
+}
+
