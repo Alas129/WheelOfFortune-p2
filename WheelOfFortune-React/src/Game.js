@@ -123,6 +123,23 @@ function Game() {
       setGuessLetter("");
   }
 
+  //Event handler to get hint
+  function getHint(){
+    let hint = '';
+    if(guessTime < 2){
+      alert("You don't have enough chances to exchange for a hint.");
+      return;
+    }
+    for(let i= 0; i < hiddenPhrase.length;i++){
+      if(hiddenPhrase.charAt(i) === '*'){
+        hint = secret.charAt(i);
+        setGuessTime(prevGuessTime => prevGuessTime - 2);
+        break;
+      } 
+    }
+    alert("The first unkown letter is: " + hint);
+  }
+
   //Event handler to save the game record
   async function saveRecord(){
     await saveGame();
@@ -163,6 +180,7 @@ function Game() {
         <label>Guessig the phrase </label>
         <input type= "text" maxLength={1} value = {guessLetter} placeholder='letter' onChange = {handleChange}/>
         <button onClick={checkGuess} disabled={gameOver}>Submit</button>
+        <button onClick={getHint} >Two chances for one hint</button>
       </div>
       <div>
         <h2>{notice}</h2>{gameOver&&
