@@ -13,7 +13,10 @@ const secret = phrases[secretIndex].toLowerCase();
 const maxGuessingTime = 5;
 let wrongGuess = 0;
 let score = 0;
-
+const winAudio1s = new Audio('win_sound_1s.mp3');
+const winAudio2s = new Audio('win_sound_2s.mp3');
+const loseAudio1s = new Audio('lose_sound_1s.mp3');
+const loseAudio2s = new Audio('lose_sound_2s.mp3');
 //Function to generate a hidden phrase based on the secrete
 function generateHiddenPhrase(secret){
   let output = "";
@@ -97,8 +100,10 @@ function Game() {
         
         if(newHiddenPhrase === secret){
           setNotice("You won the game");
+          winAudio2s.play();
           setGameOver(true);
         }else{
+          winAudio1s.play();
           setNotice("This is a right guess");
         }
         setPreviousGuess(previousGuess+guessLetter);
@@ -106,8 +111,10 @@ function Game() {
         wrongGuess++;
         if(guessTime === 1){
            setGameOver(true);
+           loseAudio2s.play();
            setNotice("You loss the game");
         }else{
+          loseAudio1s.play();
           setNotice("This is a wrong guess");
         }
         setGuessTime(prevGuessTime => prevGuessTime - 1);
