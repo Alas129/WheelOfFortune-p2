@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Maven: com.google.cloud:google-cloud-datastore:2.16.3" type="java-imported" external-system-id="Maven">
+    <properties groupId="com.google.cloud" artifactId="google-cloud-datastore" version="2.16.3" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/cloud/google-cloud-datastore/2.16.3/google-cloud-datastore-2.16.3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/cloud/google-cloud-datastore/2.16.3/google-cloud-datastore-2.16.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/cloud/google-cloud-datastore/2.16.3/google-cloud-datastore-2.16.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
