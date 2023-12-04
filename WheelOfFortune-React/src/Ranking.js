@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-
+import { CommentGameContext } from './App';
 import { getAuth, signInWithRedirect, GoogleAuthProvider } from 'firebase/auth';
-import PlayerName from './PlayerName';
+import { useNavigate } from 'react-router-dom';
 
 //Ranking componente
 function Ranking() {
+    const navigate = useNavigate();
     const [games, setGames] = useState([]);
     const [usergames, setUserGames] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -16,6 +17,7 @@ function Ranking() {
     const size = 2;
     const[totalPageOfAllGames,setTotalPageOfAllGames] = useState(0);
     const[ totalPageOfUserGames,setTotalPageOfUserGames ] = useState(0);
+    const {commentGameRecord,setCommentGameRecord} = useContext(CommentGameContext);
 
     //Function to handle moving to the previous page for all games ranking
     function handleAllGamePreviousPage(){
@@ -93,12 +95,16 @@ function Ranking() {
         });
       }
 
+      function handleComment(game){
+        setCommentGameRecord(game);
+        navigate('/comment');
+      }
+
     //useEffect to fetch all games on component mount or when when allGamescurrentPage changes 
     useEffect(() => {
         // Using Axios to fetch data
         displayAllGames()
       }, [allGamescurrentPage]);
-
     //useEffect to fetch user games on component mount or when when userGamescurrentPage changes 
     useEffect(() => {
       displayGamesByUserId();
@@ -113,7 +119,7 @@ function Ranking() {
         {games && games.length > 0 ? (
         games.map(game => (
           <div className="game-item">
-            <p>{game.playerName} score: {game.score} at {game.date}</p> 
+            {game.playerName} score: {game.score} at {game.date}<button className = "comment-button"onClick={()=>handleComment(game)}>Comment</button>
           </div>
         ))) :(
           <p >No games available</p>
@@ -144,7 +150,7 @@ function Ranking() {
           </div>
       </div>
       <div >
-        <button className="play-game-button" onClick={handlePlayGame}>Play Game</button> 
+        <button className="play-game-button-under-ranking" onClick={handlePlayGame}>Play Game</button> 
       </div>
      
     </div>

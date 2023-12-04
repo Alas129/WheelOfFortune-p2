@@ -115,26 +115,34 @@ h1 {
   margin-bottom: 10px;
 }
 
-.play-game-button {
+.play-game-button-under-ranking {
   position: absolute;
-  bottom: -300px; /* 调整底部距离 */
+  bottom: -300px; 
   left: 50%;
   transform: translateX(-50%);
 }
 
-/* 新增样式 */
+.play-game-button-under-comment {
+  position: absolute;
+  bottom: 100px; 
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .game-list-header {
   font-size: 24px;
   margin-bottom: 20px;
   color: #fff;
 }
 
+.comment-button,
 .delete-button{
   margin: 0;
   margin-left: 20px;
   padding: 3px 12px;
   font-size: 13px;
 }
+
 
 .show-playerName{
   font-size: 24px;
@@ -163,7 +171,7 @@ h1 {
   color: black;
 }
 
-/* 将下面的样式添加到你的 CSS 文件中 */
+
 .buttons-container {
   display: flex;
   flex-direction: row;
@@ -181,10 +189,8 @@ h1 {
   font-size: 16px;
   margin: 20px 10px;
   cursor: pointer;
-  margin-right: 10px; /* 调整按钮之间的间距 */
+  margin-right: 10px; 
 }
-/* ... 其他样式 */
-/* ... 其他样式 */
 
 .games-page {
   display: flex;
@@ -220,20 +226,88 @@ h1 {
 
 .editPlayerName {
   position: absolute;
-  top: 20px; /* 调整距离顶部的距离 */
-  right: 20px; /* 调整距离右侧的距离 */
+  top: 120px; 
+  right: 80px; 
 }
 
 .showranking{
   position: absolute;
-  top: 20px; /* 调整距离顶部的距离 */
-  left: 20px; /* 调整距离右侧的距离 */
+  top: 50px; 
+  right: 80px; 
 }
 
-/* 调整下面的样式，确保按钮居中 */
 .buttons-container {
   display: flex;
   flex-direction: row;
-  justify-content: center; /* 居中对齐 */
+  justify-content: center; 
 }
+
+.comment-input-box {
+  color: black;
+  margin-bottom: 10px;
+}
+
+.comment-input-box input {
+  color: black;
+}
+
+/* 可以添加到你的 CSS 文件中 */
+/* 将下面的样式添加到你的 CSS 文件中 */
+
+.comment-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh; /* 100% of the viewport height */
+}
+
+.display-comments {
+  width: 60%;
+  float: left;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  color: #fff;
+}
+
+.comment-item {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.create-new-comment {
+  width: 30%;
+  margin-top: 20px;
+  text-align: center;
+  float: right; /* 将右侧的 create-new-comment 部分浮动到右侧 */
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.comment-input-box {
+  color: #fff;
+}
+
+.comment-input-box textarea {
+  width: 100%; /* 占据整个宽度 */
+  padding: 12px;
+  font-size: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #fff;
+  height: 100px; 
+}
+
+.comment-Submit {
+  width: 100%; /* 占据整个宽度 */
+}
+
+
+/* 可以根据需要调整颜色、大小和边距等属性。 */
 
