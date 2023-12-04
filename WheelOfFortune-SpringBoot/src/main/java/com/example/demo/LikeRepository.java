@@ -9,5 +9,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 // Interface extending DatastoreRepository for Like entity with Long as the ID type
 public interface LikeRepository extends DatastoreRepository<Like, Long> {
     // Find all games with pagination and sorting by likes in descending order
-    int findAllByOrderByScoreDesc(Long gameId);
+    int findAllByOrderByLikeDesc(Long gameId);
 }

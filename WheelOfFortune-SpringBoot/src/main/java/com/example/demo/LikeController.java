@@ -21,7 +21,7 @@ public class LikeController {
     @ResponseBody
     @CrossOrigin(origins = "*")
     public int findLikes(@RequestParam long gameId) {
-        return likeRepository.findAllByOrderByScoreDesc(gameId);
+        return likeRepository.findAllByOrderByLikeDesc(gameId);
     }
 
 }
