@@ -9,9 +9,9 @@ import java.time.LocalDate;
 @Entity(name = "likes")
 public class Like {
     @Id
-    Long id; //Unique identifier for the game
-    Long gameId; //User ID associated with the game
-    int likes; //Score achieved in the game
+    Long id; //Unique identifier for the like
+    Long gameId; //Game ID associated with the like
+    int likes; //Like of the game
 
     // Constructor to initialize a Like with user ID, player name, score, and date
     public Like(Long gameId, int likes) {
