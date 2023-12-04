@@ -10,20 +10,29 @@ import java.time.LocalDate;
 public class Comment {
     @Id
     Long id; //Unique identifier for the comment
-    Long gameId; //Game ID associated with the comment
-    String userId; //User ID associated with the comment
-    String comments; //comments in the game
-    LocalDate date; //Date of the comment
+    Long gameId; //Unique identifier for the game record
+    String playerName; //Commenter name
+    String content; //Comment content
+    LocalDate date; //Date when the comment created
 
-    // Constructor to initialize a Like with user ID, player name, score, and date
-    public Comment(Long gameId, String userId, String comments, LocalDate date) {
+    // Constructor to initialize a comment
+    public Comment(Long gameId, String playerName, String content, LocalDate date) {
         this.gameId = gameId;
-        this.userId = userId;
-        this.comments = comments;
+        this.playerName = playerName;
+        this.content = content;
         this.date = date;
     }
 
     // Getter and setter methods for each field
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Long getGameId() {
         return gameId;
     }
@@ -32,20 +41,20 @@ public class Comment {
         this.gameId = gameId;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getPlayerName() {
+        return playerName;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 
-    public String getComments() {
-        return comments;
+    public String getContent() {
+        return content;
     }
 
-    public void setComments(String comments) {
-        this.comments = comments;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public LocalDate getDate() {
@@ -61,8 +70,8 @@ public class Comment {
         return "Comment{" +
                 "id=" + id +
                 ", gameId=" + gameId +
-                ", userId='" + userId + '\'' +
-                ", comments='" + comments + '\'' +
+                ", playerName='" + playerName + '\'' +
+                ", content='" + content + '\'' +
                 ", date=" + date +
                 '}';
     }

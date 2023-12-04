@@ -165,7 +165,7 @@ function Game() {
   async function saveGame(){  
     console.log(gameOver);
     const postData = {
-        userId:auth.currentUser.email,
+        userId:auth.currentUser.uid,
         playerName:playerName,
         score:score
     };

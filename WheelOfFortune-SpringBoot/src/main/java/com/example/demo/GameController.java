@@ -69,4 +69,11 @@ public class GameController {
         this.gameRepository.saveAll(games);
     }
 
+    @GetMapping("/deleteByUserId")
+    @ResponseBody
+    @CrossOrigin(origins = "*")
+    public void deleteByUserId(@RequestParam String userId){
+         this.gameRepository.deleteByUserId(userId);
+    }
+
 }

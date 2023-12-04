@@ -1,7 +1,13 @@
 com/example/demo/UserRepository.class
 com/example/demo/Application.class
-com/example/demo/GameController.class
+com/example/demo/CommentRepository.class
 com/example/demo/UserController.class
-com/example/demo/User.class
+com/example/demo/Comment.class
+com/example/demo/CommentController.class
 com/example/demo/Game.class
+com/example/demo/LikeController.class
 com/example/demo/GameRepository.class
+com/example/demo/LikeRepository.class
+com/example/demo/GameController.class
+com/example/demo/Like.class
+com/example/demo/User.class

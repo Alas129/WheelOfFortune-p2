@@ -9,9 +9,13 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import axios from 'axios';
+import Comment from './Comment';
 
 // Creat a context for PlyerName to be shared among components
 export const PlayerNameContext = createContext();
+
+// Creat a context for CommentGame to be shared among components
+export const CommentGameContext = createContext();
 
 //Firebase configuration
 const firebaseConfig = {
@@ -39,10 +43,13 @@ function App() {
   //state to store the plyerName
   const[playerName,setPlayerName] = useState(null);
 
+   //state to store the commentGame
+  const [commentGameRecord, setCommentGameRecord] = useState(null);
+
   //Function to fetch the playerName by userId
   function findPlayerNameByUserId() {
     if(auth.currentUser){
-      axios.get(`https://skilful-grove-404519.ue.r.appspot.com/findPlayerNameByUserId?userId=${auth.currentUser.email}`)
+      axios.get(`https://skilful-grove-404519.ue.r.appspot.com/findPlayerNameByUserId?userId=${auth.currentUser.uid}`)
     .then(response => {
       setPlayerName(response.data);  // Axios packs the response in a 'data' property
     })
@@ -77,6 +84,7 @@ function App() {
 
   // Return the main content using React Router
   return (
+    <CommentGameContext.Provider value={{commentGameRecord,setCommentGameRecord}}>
     <PlayerNameContext.Provider value = {{playerName, setPlayerName}} >
       <Router>
       {/* add playerName and setPlayerName to the PlayerNameContext. */}
@@ -98,10 +106,15 @@ function App() {
         path = "/playerName"
         element={<PlayerName />}
         />
+        <Route
+        path = "/comment"
+        element={<Comment />}
+        />
       </Routes>
       
       </Router>
       </PlayerNameContext.Provider>
+      </CommentGameContext.Provider>
   );
 }
 

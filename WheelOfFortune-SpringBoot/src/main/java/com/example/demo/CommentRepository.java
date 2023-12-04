@@ -1,12 +1,13 @@
 package com.example.demo;
+import java.util.List;
 
 import com.google.cloud.spring.data.datastore.repository.DatastoreRepository;
+import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
 
-// Interface extending DatastoreRepository for Like entity with Long as the ID type
+@Repository
 public interface CommentRepository extends DatastoreRepository<Comment, Long> {
-    // Find comments by game id
-    Comment findCommentByGameId(Long gameId);
-    // Find comments by user id
-    Comment findUserByGameId(String user);
+
+    List<Comment> findByGameId(Long gameId);
 }

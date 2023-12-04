@@ -4,22 +4,30 @@ import com.google.cloud.spring.data.datastore.core.mapping.Entity;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
+import java.util.List;
 
 //Entity annotation to mark this class as a Datastore entity
 @Entity(name = "likes")
 public class Like {
     @Id
-    Long id; //Unique identifier for the like
+    Long id;
     Long gameId; //Game ID associated with the like
-    int likes; //Like of the game
 
-    // Constructor to initialize a Like with user ID, player name, score, and date
-    public Like(Long gameId, int likes) {
+    String userId; // User who like this game record
+
+    public Like(Long gameId, String userId) {
         this.gameId = gameId;
-        this.likes = likes;
+        this.userId = userId;
     }
 
-    // Getter and setter methods for each field
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Long getGameId() {
         return gameId;
     }
@@ -28,20 +36,19 @@ public class Like {
         this.gameId = gameId;
     }
 
-    public int getLikes() {
-        return likes;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setLikes(int likes) {
-        this.likes = likes;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     @Override
     public String toString() {
         return "Like{" +
-                "id=" + id +
                 ", gameId=" + gameId +
-                ", likes=" + likes +
+                ", userId='" + userId + '\'' +
                 '}';
     }
 }

@@ -23,7 +23,7 @@ import {PlayerNameContext} from './App';
 
         //Dta to be sent in the POST request
         const postData = {
-            userId:auth.currentUser.email,
+            userId:auth.currentUser.uid,
             playerName: playerName
             
         };
