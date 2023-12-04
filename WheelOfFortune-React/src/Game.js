@@ -123,8 +123,14 @@ function Game() {
       setGameOver(true);
     }else{
       wrongGuess++;
-      loseAudio2s.play();
-      setNotice("You loss the game");
+      if(guessTime === 1){
+        setGameOver(true);
+        loseAudio2s.play();
+        setNotice("You loss the game");
+     }else{
+       loseAudio1s.play();
+       setNotice("This is a wrong guess");
+     }
       setGuessTime(prevGuessTime => prevGuessTime - 1);
     }
   }
